@@ -18,16 +18,16 @@ export const metadata = { title: `Customers | Dashboard | ${config.site.name}` }
 const customers = [
   {
     id: 'USR-010',
-    name: 'Alcides Antonio',
-    avatar: '/assets/avatar-10.png',
-    email: 'alcides.antonio@devias.io',
+    name: 'Mahesh Josyula',
+    avatar: '/assets/Mahesh-pic.png',
+    email: 'mahesh.joysula@platformsupport.com',
     phone: '908-691-3242',
     address: { city: 'Madrid', country: 'Spain', state: 'Comunidad de Madrid', street: '4158 Hedge Street' },
     createdAt: dayjs().subtract(2, 'hours').toDate(),
   },
   {
     id: 'USR-009',
-    name: 'Marcus Finn',
+    name: 'Sri Harshita Pendyala',
     avatar: '/assets/avatar-9.png',
     email: 'marcus.finn@devias.io',
     phone: '415-907-2647',
