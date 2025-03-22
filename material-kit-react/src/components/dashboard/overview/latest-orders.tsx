@@ -16,16 +16,16 @@ import { ArrowRight as ArrowRightIcon } from '@phosphor-icons/react/dist/ssr/Arr
 import dayjs from 'dayjs';
 
 const statusMap = {
-  pending: { label: 'In-progress', color: 'warning' },
-  delivered: { label: 'Closed', color: 'success' },
-  refunded: { label: 'To-Do', color: 'error' },
+  inProgress: { label: 'In-progress', color: 'warning' },
+  closed: { label: 'Closed', color: 'success' },
+  toDo: { label: 'To-Do', color: 'error' },
 } as const;
 
 export interface Order {
   id: string;
-  shortDescription: { name: string };
-  AppName: String;
-  status: 'To-do' | 'In-progress' | 'Closed';
+  shortDescription: string;
+  AppName: string;
+  status: 'toDo' | 'inProgress' | 'closed';
   createdAt: Date;
 }
 
@@ -58,7 +58,7 @@ export function LatestOrders({ orders = [], sx }: LatestOrdersProps): React.JSX.
                 <TableRow hover key={order.id}>
                   <TableCell>{order.id}</TableCell>
                   <TableCell>{order.shortDescription}</TableCell>
-                  <TableCell>{order.shortDescription}</TableCell>
+                  <TableCell>{order.AppName}</TableCell>
                   <TableCell>{dayjs(order.createdAt).format('MMM D, YYYY')}</TableCell>
                   <TableCell>
                     <Chip color={color} label={label} size="small" />
