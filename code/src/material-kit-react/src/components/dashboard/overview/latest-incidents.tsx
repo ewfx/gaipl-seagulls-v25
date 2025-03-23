@@ -64,7 +64,7 @@ export function LatestOrders({ orders = [], sx }: LatestOrdersProps): React.JSX.
 
               return (
                 <TableRow hover key={order.id}>
-                  <TableCell>{order.id}</TableCell>
+                  <TableCell><a href='dashboard/integrations'>{order.id}</a></TableCell>
                   <TableCell>{order.shortDescription}</TableCell>
                   <TableCell>{order.AppName}</TableCell>
                   <TableCell>{dayjs(order.createdAt).format('MMM D, YYYY')}</TableCell>
