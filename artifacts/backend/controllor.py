@@ -18,6 +18,15 @@ async def create_item(body: Body):
     print("\nAI Response:", response)
     return response
 
+@app.get("/invokeagent/{query}")
+async def create_item(query: str):
+    print(query)
+    # req_body = json.loads(body)
+    # query = req_body['query']['command']
+    response = get_agent().invoke({"input": query})
+    print("\nAI Response:", response)
+    return response
+
 if __name__ == "__main__":
     import uvicorn
     uvicorn.run(app, host="0.0.0.0", port=5679)
