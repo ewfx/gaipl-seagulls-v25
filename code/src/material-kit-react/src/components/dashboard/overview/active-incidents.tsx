@@ -7,46 +7,48 @@ import type { SxProps } from '@mui/material/styles';
 import Typography from '@mui/material/Typography';
 import { ArrowDown as ArrowDownIcon } from '@phosphor-icons/react/dist/ssr/ArrowDown';
 import { ArrowUp as ArrowUpIcon } from '@phosphor-icons/react/dist/ssr/ArrowUp';
-import { Heart as UsersIcon } from '@phosphor-icons/react/dist/ssr/Heart';
-import { green } from '@mui/material/colors';
+import { BellSimpleRinging as BellRingingIcon } from '@phosphor-icons/react/dist/ssr';
 
-export interface TotalCustomersProps {
-  status?: string;
+
+export interface ActiveIncidentProps {
+  diff?: number;
   trend: 'up' | 'down';
   sx?: SxProps;
   value: string;
 }
 
-export function TotalCustomers({ status, trend, sx, value }: TotalCustomersProps): React.JSX.Element {
+export function ActiveIncidents({ diff, trend, sx, value }: ActiveIncidentProps): React.JSX.Element {
+  const TrendIcon = trend === 'up' ? ArrowUpIcon : ArrowDownIcon;
   const trendColor = trend === 'up' ? 'var(--mui-palette-success-main)' : 'var(--mui-palette-error-main)';
 
   return (
     <Card sx={sx}>
       <CardContent>
-        <Stack spacing={2}>
+        <Stack spacing={3}>
           <Stack direction="row" sx={{ alignItems: 'flex-start', justifyContent: 'space-between' }} spacing={3}>
             <Stack spacing={1}>
               <Typography color="text.secondary" variant="overline">
-                <b>Health Status</b>
+                <b>New Incidents</b>
               </Typography>
-              <Typography color={"green"} variant="h4">{status}</Typography>
+              <Typography variant="h4">{value}</Typography>
             </Stack>
-            <Avatar sx={{ backgroundColor: 'var(--mui-palette-warning-main)', height: '56px', width: '56px' }}>
-              <UsersIcon fontSize="var(--icon-fontSize-lg)" />
+            <Avatar sx={{ backgroundColor: 'var(--mui-palette-primary-main)', height: '56px', width: '56px' }}>
+              <BellRingingIcon fontSize="var(--icon-fontSize-lg)" />
             </Avatar>
           </Stack>
-          {/* {status ? (
+          {diff ? (
             <Stack sx={{ alignItems: 'center' }} direction="row" spacing={2}>
               <Stack sx={{ alignItems: 'center' }} direction="row" spacing={0.5}>
-                <Typography color={"GREEN" } variant="body2">
-                  <b>type something here</b>
+                <TrendIcon color={trendColor} fontSize="var(--icon-fontSize-md)" />
+                <Typography color={trendColor} variant="body2">
+                  <b>{diff}%</b>
                 </Typography>
               </Stack>
-              <Typography color="GREEN" variant="caption">
-                add some text here
+              <Typography color="text.secondary" variant="caption">
+                Since yesterday
               </Typography>
             </Stack>
-          ) : null} */}
+          ) : null}
         </Stack>
       </CardContent>
     </Card>

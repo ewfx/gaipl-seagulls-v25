@@ -4,10 +4,11 @@ import Grid from '@mui/material/Unstable_Grid2';
 import dayjs from 'dayjs';
 
 import { config } from '@/config';
-import { Budget } from '@/components/dashboard/overview/budget';
-import { LatestOrders } from '@/components/dashboard/overview/latest-incidents';
-import { TasksProgress } from '@/components/dashboard/overview/tasks-progress';
-import { TotalCustomers } from '@/components/dashboard/overview/total-customers';
+import { ActiveIncidents } from '@/components/dashboard/overview/active-incidents';
+import { LatestIncidents } from '@/components/dashboard/overview/latest-incidents';
+import { IncidentsInProgress } from '@/components/dashboard/overview/inprogress-incidents';
+import { HealthStatus } from '@/components/dashboard/overview/health-status';
+import { ClosedIncidents } from '@/components/dashboard/overview/closed-incidents';
 import { Traffic } from '@/components/dashboard/overview/traffic';
 
 export const metadata = { title: `Overview | Dashboard | ${config.site.name}` } satisfies Metadata;
@@ -15,20 +16,23 @@ export const metadata = { title: `Overview | Dashboard | ${config.site.name}` } 
 export default function Page(): React.JSX.Element {
   return (
     <Grid container spacing={3}>
-      <Grid lg={4} sm={6} xs={12}>
-        <Budget diff={12} trend="up" sx={{ height: '100%' }} value="20" />
+      <Grid lg={3} sm={6} xs={12}>
+        <ActiveIncidents diff={12} trend="up" sx={{ height: '100%' }} value="20" />
       </Grid>
-      <Grid lg={4} sm={6} xs={12}>
-        <TotalCustomers status={'UP'} trend="down" sx={{ height: '100%' }} value="1.6k" />
+      <Grid lg={3} sm={6} xs={12}>
+        <IncidentsInProgress diff={12} trend="up" sx={{ height: '100%' }} value={10} />
       </Grid>
-      <Grid lg={4} sm={6} xs={12}>
-        <TasksProgress sx={{ height: '100%' }} value={75.5} />
+      <Grid lg={3} sm={6} xs={12}>
+        <ClosedIncidents diff={12} trend="up" sx={{ height: '100%' }} value="15" />
+      </Grid>
+      <Grid lg={3} sm={6} xs={12}>
+        <HealthStatus status={'UP'} trend="down" sx={{ height: '100%' }} value="1.6k" />
       </Grid>
       <Grid lg={4} md={6} xs={12}>
-        <Traffic chartSeries={[63, 15, 22]} labels={['Desktop', 'Tablet', 'Phone']} sx={{ height: '100%' }} />
+        <Traffic initialChartSeries={[63, 15, 22]} labels={['New', 'In Progress', 'Done']} sx={{ height: '100%' }} />
       </Grid>
       <Grid lg={8} md={12} xs={12}>
-        <LatestOrders
+        <LatestIncidents
           orders={[
             {
               id: 'INC-010',

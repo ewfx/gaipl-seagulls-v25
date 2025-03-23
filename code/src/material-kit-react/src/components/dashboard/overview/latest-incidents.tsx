@@ -36,12 +36,12 @@ export interface Order {
   createdAt: Date;
 }
 
-export interface LatestOrdersProps {
+export interface LatestIncidentsProps {
   orders?: Order[];
   sx?: SxProps;
 }
 
-export function LatestOrders({ orders = [], sx }: LatestOrdersProps): React.JSX.Element {
+export function LatestIncidents({ orders = [], sx }: LatestIncidentsProps): React.JSX.Element {
   return (
     <Card sx={sx}>
       <CardHeader title="Incident Status" />
@@ -80,14 +80,14 @@ export function LatestOrders({ orders = [], sx }: LatestOrdersProps): React.JSX.
       </Box>
       <Divider />
       <CardActions sx={{ justifyContent: 'flex-end' }}>
-        <Button
+        {/* <Button
           color="inherit"
           endIcon={<ArrowRightIcon fontSize="var(--icon-fontSize-md)" />}
           size="small"
           variant="text"
         >
           View all
-        </Button>
+        </Button> */}
       </CardActions>
     </Card>
   );
