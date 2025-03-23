@@ -5,7 +5,7 @@ import dayjs from 'dayjs';
 
 import { config } from '@/config';
 import { Budget } from '@/components/dashboard/overview/budget';
-import { LatestOrders } from '@/components/dashboard/overview/latest-orders';
+import { LatestOrders } from '@/components/dashboard/overview/latest-incidents';
 import { TasksProgress } from '@/components/dashboard/overview/tasks-progress';
 import { TotalCustomers } from '@/components/dashboard/overview/total-customers';
 import { Traffic } from '@/components/dashboard/overview/traffic';
@@ -35,6 +35,7 @@ export default function Page(): React.JSX.Element {
               shortDescription: 'Incident 10',
               AppName: 'App 10',
               status: 'inProgress',
+              priority: 'high',
               createdAt: dayjs().subtract(10, 'minutes').toDate(),
             },
             {
@@ -42,6 +43,7 @@ export default function Page(): React.JSX.Element {
               shortDescription: 'Incident 11',
               AppName: 'App 14',
               status: 'closed',
+              priority: 'medium',
               createdAt: dayjs().subtract(10, 'minutes').toDate(),
             },
             {
@@ -49,6 +51,7 @@ export default function Page(): React.JSX.Element {
               shortDescription: 'Incident 12',
               AppName: 'App 21',
               status: 'inProgress',
+              priority: 'low',
               createdAt: dayjs().subtract(10, 'minutes').toDate(),
             },
             {
@@ -56,6 +59,7 @@ export default function Page(): React.JSX.Element {
               shortDescription: 'Incident 13',
               AppName: 'App 35',
               status: 'toDo',
+              priority: 'medium',
               createdAt: dayjs().subtract(10, 'minutes').toDate(),
             },
             {
@@ -63,6 +67,7 @@ export default function Page(): React.JSX.Element {
               shortDescription: 'Incident 14',
               AppName: 'App 90',
               status: 'closed',
+              priority: 'high',
               createdAt: dayjs().subtract(10, 'minutes').toDate(),
             },
             {
@@ -70,6 +75,7 @@ export default function Page(): React.JSX.Element {
               shortDescription: 'Incident 15',
               AppName: 'App 100',
               status: 'toDo',
+              priority: 'low',
               createdAt: dayjs().subtract(10, 'minutes').toDate(),
             },
           ]}

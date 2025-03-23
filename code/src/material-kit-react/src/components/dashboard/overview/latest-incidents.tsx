@@ -21,11 +21,18 @@ const statusMap = {
   toDo: { label: 'To-Do', color: 'error' },
 } as const;
 
+const priorityMap = {
+  low: { label: 'Low', color: 'warning' },
+  medium: { label: 'Medium', color: 'success' },
+  high: { label: 'High', color: 'error' },
+} as const;
+
 export interface Order {
   id: string;
   shortDescription: string;
   AppName: string;
   status: 'toDo' | 'inProgress' | 'closed';
+  priority: 'low' | 'medium' | 'high';
   createdAt: Date;
 }
 
@@ -47,6 +54,7 @@ export function LatestOrders({ orders = [], sx }: LatestOrdersProps): React.JSX.
               <TableCell>Short description</TableCell>
               <TableCell>App Name</TableCell>
               <TableCell sortDirection="desc">Date</TableCell>
+              <TableCell>Priority</TableCell>
               <TableCell>Status</TableCell>
             </TableRow>
           </TableHead>
@@ -60,6 +68,7 @@ export function LatestOrders({ orders = [], sx }: LatestOrdersProps): React.JSX.
                   <TableCell>{order.shortDescription}</TableCell>
                   <TableCell>{order.AppName}</TableCell>
                   <TableCell>{dayjs(order.createdAt).format('MMM D, YYYY')}</TableCell>
+                  <TableCell>{order.priority}</TableCell>
                   <TableCell>
                     <Chip color={color} label={label} size="small" />
                   </TableCell>
