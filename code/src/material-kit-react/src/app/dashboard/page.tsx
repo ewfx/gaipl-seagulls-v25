@@ -10,6 +10,7 @@ import { IncidentsInProgress } from '@/components/dashboard/overview/inprogress-
 import { HealthStatus } from '@/components/dashboard/overview/health-status';
 import { ClosedIncidents } from '@/components/dashboard/overview/closed-incidents';
 import { Traffic } from '@/components/dashboard/overview/traffic';
+import { IncidentDetails } from '@/components/dashboard/incidents/incident-info';
 
 export const metadata = { title: `Overview | Dashboard | ${config.site.name}` } satisfies Metadata;
 

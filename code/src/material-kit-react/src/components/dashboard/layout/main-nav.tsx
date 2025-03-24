@@ -88,7 +88,6 @@ export function MainNav(): React.JSX.Element {
             <IconButton onClick={() => setOpenNav(true)} sx={{ display: { lg: 'none' } }}>
               <ListIcon />
             </IconButton>
-
             {/* 🔍 Search Box */}
             <form onSubmit={handleSearch}>
               <TextField
@@ -107,7 +106,6 @@ export function MainNav(): React.JSX.Element {
               />
             </form>
           </Stack>
-
           <Stack sx={{ alignItems: 'center' }} direction="row" spacing={2}>
             {/* 🔔 Notifications with Dropdown */}
             <Tooltip title="Notifications">
@@ -117,7 +115,6 @@ export function MainNav(): React.JSX.Element {
                 </IconButton>
               </Badge>
             </Tooltip>
-
             {/* Notification Popover */}
             <Popover
               open={Boolean(anchorEl)}
@@ -127,7 +124,7 @@ export function MainNav(): React.JSX.Element {
               transformOrigin={{ vertical: 'top', horizontal: 'right' }}
               sx={{ mt: 1 }}
             >
-              <Box sx={{ width: 300, p: 2 }}>
+            <Box sx={{ width: 300, p: 2 }}>
                 <Typography variant="h6" gutterBottom>
                   Notifications
                 </Typography>
@@ -141,7 +138,6 @@ export function MainNav(): React.JSX.Element {
                 </List>
               </Box>
             </Popover>
-
             {/* 🧑 User Avatar */}
             <Avatar
               onClick={userPopover.handleOpen}
@@ -152,7 +148,6 @@ export function MainNav(): React.JSX.Element {
           </Stack>
         </Stack>
       </Box>
-
       <UserPopover anchorEl={userPopover.anchorRef.current} onClose={userPopover.handleClose} open={userPopover.open} />
       <MobileNav onClose={() => setOpenNav(false)} open={openNav} />
     </React.Fragment>

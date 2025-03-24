@@ -25,16 +25,15 @@ export function SideNav(): React.JSX.Element {
   return (
     <Box
       sx={{
-        '--SideNav-background': 'var(--mui-palette-neutral-950)',
-        '--SideNav-color': 'var(--mui-palette-common-white)',
-        '--NavItem-color': 'var(--mui-palette-neutral-300)',
-        '--NavItem-hover-background': 'rgba(255, 255, 255, 0.04)',
-        '--NavItem-active-background': 'var(--mui-palette-primary-main)',
-        '--NavItem-active-color': 'var(--mui-palette-primary-contrastText)',
-        '--NavItem-disabled-color': 'var(--mui-palette-neutral-500)',
-        '--NavItem-icon-color': 'var(--mui-palette-neutral-400)',
-        '--NavItem-icon-active-color': 'var(--mui-palette-primary-contrastText)',
-        '--NavItem-icon-disabled-color': 'var(--mui-palette-neutral-600)',
+        '--SideNav-background': '#B71C1C', // Deep Red Background
+        '--SideNav-color': '#FFFFFF', // White text/icons
+        '--NavItem-color': '#FFFFFF', // White for nav items
+        '--NavItem-hover-background': 'rgba(255, 255, 255, 0.1)', // Light white hover
+        '--NavItem-active-background': '#FBC02D', // Warm Yellow active background
+        '--NavItem-active-color': '#B71C1C', // Deep Red text when active
+        '--NavItem-disabled-color': '#BDBDBD', // Gray for disabled items
+        '--NavItem-icon-color': '#FFFFFF', // White icons
+        '--NavItem-icon-active-color': '#B71C1C', // Deep Red icon when active
         bgcolor: 'var(--SideNav-background)',
         color: 'var(--SideNav-color)',
         display: { xs: 'none', lg: 'flex' },
@@ -46,7 +45,7 @@ export function SideNav(): React.JSX.Element {
         scrollbarWidth: 'none',
         top: 0,
         width: 'var(--SideNav-width)',
-        zIndex: 'var(--SideNav-zIndex)',
+        borderRight: '2px solid #FBC02D', // Warm Yellow Border
         '&::-webkit-scrollbar': { display: 'none' },
       }}
     >
@@ -54,33 +53,12 @@ export function SideNav(): React.JSX.Element {
         <Box component={RouterLink} href={paths.home} sx={{ display: 'inline-flex' }}>
           <Logo color="light" height={32} width={122} />
         </Box>
-        <Box
-          sx={{
-            alignItems: 'center',
-            backgroundColor: 'var(--mui-palette-neutral-950)',
-            border: '1px solid var(--mui-palette-neutral-700)',
-            borderRadius: '12px',
-            cursor: 'pointer',
-            display: 'flex',
-            p: '4px 12px',
-          }}
-        >
-          <Box sx={{ flex: '1 1 auto' }}>
-            <Typography color="var(--mui-palette-neutral-400)" variant="body2">
-              App Id
-            </Typography>
-            <Typography color="inherit" variant="subtitle1">
-              TECHEXPO
-            </Typography>
-          </Box>
-          <CaretUpDownIcon />
-        </Box>
       </Stack>
-      <Divider sx={{ borderColor: 'var(--mui-palette-neutral-700)' }} />
+      <Divider sx={{ borderColor: '#FBC02D' }} />
       <Box component="nav" sx={{ flex: '1 1 auto', p: '12px' }}>
         {renderNavItems({ pathname, items: navItems })}
       </Box>
-      <Divider sx={{ borderColor: 'var(--mui-palette-neutral-700)' }} />
+      <Divider sx={{ borderColor: '#FBC02D' }} />
     </Box>
   );
 }
@@ -112,35 +90,35 @@ function NavItem({ disabled, external, href, icon, matcher, pathname, title }: N
   return (
     <li>
       <Box
-        {...(href
-          ? {
-              component: external ? 'a' : RouterLink,
-              href,
-              target: external ? '_blank' : undefined,
-              rel: external ? 'noreferrer' : undefined,
-            }
-          : { role: 'button' })}
-        sx={{
-          alignItems: 'center',
-          borderRadius: 1,
-          color: 'var(--NavItem-color)',
-          cursor: 'pointer',
-          display: 'flex',
-          flex: '0 0 auto',
-          gap: 1,
-          p: '6px 16px',
-          position: 'relative',
-          textDecoration: 'none',
-          whiteSpace: 'nowrap',
-          ...(disabled && {
-            bgcolor: 'var(--NavItem-disabled-background)',
-            color: 'var(--NavItem-disabled-color)',
-            cursor: 'not-allowed',
-          }),
-          ...(active && { bgcolor: 'var(--NavItem-active-background)', color: 'var(--NavItem-active-color)' }),
-        }}
-      >
-        <Box sx={{ alignItems: 'center', display: 'flex', justifyContent: 'center', flex: '0 0 auto' }}>
+  sx={{
+    alignItems: 'center',
+    borderRadius: 1,
+    color: 'var(--NavItem-color)',
+    cursor: 'pointer',
+    display: 'flex',
+    flex: '0 0 auto',
+    gap: 1,
+    p: '6px 16px',
+    position: 'relative',
+    textDecoration: 'none',
+    whiteSpace: 'nowrap',
+    transition: 'background-color 0.3s, color 0.3s',
+    '&:hover': {
+      bgcolor: 'var(--NavItem-hover-background)',
+      color: '#FBC02D', // Warm Yellow text on hover
+    },
+    ...(disabled && {
+      color: 'var(--NavItem-disabled-color)',
+      cursor: 'not-allowed',
+    }),
+    ...(active && {
+      bgcolor: 'var(--NavItem-active-background)', // Warm Yellow active background
+      color: 'var(--NavItem-active-color)', // Deep Red text when active
+      fontWeight: 700,
+    }),
+  }}
+>
+       <Box sx={{ alignItems: 'center', display: 'flex', justifyContent: 'center', flex: '0 0 auto' }}>
           {Icon ? (
             <Icon
               fill={active ? 'var(--NavItem-icon-active-color)' : 'var(--NavItem-icon-color)'}

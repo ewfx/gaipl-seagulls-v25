@@ -14,6 +14,7 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import { ArrowRight as ArrowRightIcon } from '@phosphor-icons/react/dist/ssr/ArrowRight';
 import dayjs from 'dayjs';
+import Link from 'next/link';
 
 const statusMap = {
   inProgress: { label: 'In-progress', color: 'warning' },
@@ -64,7 +65,9 @@ export function LatestIncidents({ orders = [], sx }: LatestIncidentsProps): Reac
 
               return (
                 <TableRow hover key={order.id}>
-                  <TableCell><a href='dashboard/integrations'>{order.id}</a></TableCell>
+                  <TableCell><Link href={`/dashboard/incidents/${order.id}`} passHref>
+                  {order.id}
+                  </Link></TableCell>
                   <TableCell>{order.shortDescription}</TableCell>
                   <TableCell>{order.AppName}</TableCell>
                   <TableCell>{dayjs(order.createdAt).format('MMM D, YYYY')}</TableCell>
