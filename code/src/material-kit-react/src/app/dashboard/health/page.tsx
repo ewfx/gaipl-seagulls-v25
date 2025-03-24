@@ -74,7 +74,7 @@ const ApplicationArchitecture = () => {
   return (
     <Box sx={{ padding: "20px", textAlign: "center" }}>
       {/* Title */}
-      <Typography variant="h4" gutterBottom sx={{ fontWeight: "bold", color: "#1976D2" }}>
+      <Typography variant="h4" gutterBottom sx={{ fontWeight: "bold", color: "black" }}>
         Application Architecture View
       </Typography>
 

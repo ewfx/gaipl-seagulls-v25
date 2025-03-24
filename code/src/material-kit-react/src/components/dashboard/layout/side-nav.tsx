@@ -90,33 +90,41 @@ function NavItem({ disabled, external, href, icon, matcher, pathname, title }: N
   return (
     <li>
       <Box
-  sx={{
-    alignItems: 'center',
-    borderRadius: 1,
-    color: 'var(--NavItem-color)',
-    cursor: 'pointer',
-    display: 'flex',
-    flex: '0 0 auto',
-    gap: 1,
-    p: '6px 16px',
-    position: 'relative',
-    textDecoration: 'none',
-    whiteSpace: 'nowrap',
-    transition: 'background-color 0.3s, color 0.3s',
-    '&:hover': {
-      bgcolor: 'var(--NavItem-hover-background)',
-      color: '#FBC02D', // Warm Yellow text on hover
-    },
-    ...(disabled && {
-      color: 'var(--NavItem-disabled-color)',
-      cursor: 'not-allowed',
-    }),
-    ...(active && {
-      bgcolor: 'var(--NavItem-active-background)', // Warm Yellow active background
-      color: 'var(--NavItem-active-color)', // Deep Red text when active
-      fontWeight: 700,
-    }),
-  }}
+        {...(href
+          ? {
+              component: external ? 'a' : RouterLink,
+              href,
+              target: external ? '_blank' : undefined,
+              rel: external ? 'noreferrer' : undefined,
+            }
+          : { role: 'button' })}
+        sx={{
+          alignItems: 'center',
+          borderRadius: 1,
+          color: 'var(--NavItem-color)',
+          cursor: 'pointer',
+          display: 'flex',
+          flex: '0 0 auto',
+          gap: 1,
+          p: '6px 16px',
+          position: 'relative',
+          textDecoration: 'none',
+          whiteSpace: 'nowrap',
+          transition: 'background-color 0.3s, color 0.3s',
+          '&:hover': {
+            bgcolor: 'var(--NavItem-hover-background)',
+            color: '#FBC02D', // Warm Yellow text on hover
+          },
+          ...(disabled && {
+            color: 'var(--NavItem-disabled-color)',
+            cursor: 'not-allowed',
+          }),
+          ...(active && {
+            bgcolor: 'var(--NavItem-active-background)', // Warm Yellow active background
+            color: 'var(--NavItem-active-color)', // Deep Red text when active
+            fontWeight: 700,
+          }),
+        }}
 >
        <Box sx={{ alignItems: 'center', display: 'flex', justifyContent: 'center', flex: '0 0 auto' }}>
           {Icon ? (
