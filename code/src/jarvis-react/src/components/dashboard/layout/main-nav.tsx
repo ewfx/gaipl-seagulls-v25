@@ -48,7 +48,7 @@ export function MainNav(): React.JSX.Element {
   const handleSearch = (event: React.FormEvent) => {
     event.preventDefault();
     if (searchQuery.trim()) {
-      router.push(`/search?q=${encodeURIComponent(searchQuery)}`);
+      router.push(`dashboard/incidents/${encodeURIComponent(searchQuery)}`);
     }
   };
 
