@@ -18,14 +18,14 @@ import CircularProgress from '@mui/material/CircularProgress';
 import Alert from '@mui/material/Alert';
 
 const statusMap = {
-  InProgress: { label: 'In-progress', color: '#2196f3' },
+  InProgress: { label: 'In-progress', color: '#ff9800' },
   Resolved: { label: 'Closed', color: '#4caf50' }, 
   Open: { label: 'To-Do', color: '#f44336' },
 } as const;
 
 const priorityMap = {
-  Low: { label: 'Low', color: '#ff9800' },
-  Medium: { label: 'Medium', color: '#4caf50' },
+  Low: { label: 'Low', color: '#4caf50' },
+  Medium: { label: 'Medium', color: '#ff9800' },
   High: { label: 'High', color: '#f44336' },
 } as const;
 
