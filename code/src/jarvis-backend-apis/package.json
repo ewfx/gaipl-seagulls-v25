@@ -1,0 +1,15 @@
+{
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "pg": "^8.14.1",
+    "supertest": "^7.1.0"
+  },
+  "scripts": {
+  "test": "jest"
+  }
+}

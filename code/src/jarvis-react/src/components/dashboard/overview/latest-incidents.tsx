@@ -1,96 +1,119 @@
+'use client';
 import * as React from 'react';
+import { useState, useEffect } from 'react';
 import Box from '@mui/material/Box';
-import Button from '@mui/material/Button';
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardHeader from '@mui/material/CardHeader';
 import Chip from '@mui/material/Chip';
 import Divider from '@mui/material/Divider';
-import type { SxProps } from '@mui/material/styles';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
-import { ArrowRight as ArrowRightIcon } from '@phosphor-icons/react/dist/ssr/ArrowRight';
 import dayjs from 'dayjs';
 import Link from 'next/link';
+import CircularProgress from '@mui/material/CircularProgress';
+import Alert from '@mui/material/Alert';
 
 const statusMap = {
-  inProgress: { label: 'In-progress', color: 'warning' },
-  closed: { label: 'Closed', color: 'success' },
-  toDo: { label: 'To-Do', color: 'error' },
+  'In Progress': { label: 'In-progress', color: 'warning' },
+  Resolved: { label: 'Closed', color: 'success' },
+  Open: { label: 'To-Do', color: 'error' },
 } as const;
 
 const priorityMap = {
-  low: { label: 'Low', color: 'warning' },
-  medium: { label: 'Medium', color: 'success' },
-  high: { label: 'High', color: 'error' },
+  Low: { label: 'Low', color: 'warning' },
+  Medium: { label: 'Medium', color: 'success' },
+  High: { label: 'High', color: 'error' },
 } as const;
 
-export interface Order {
-  id: string;
-  shortDescription: string;
-  AppName: string;
-  status: 'toDo' | 'inProgress' | 'closed';
-  priority: 'low' | 'medium' | 'high';
-  createdAt: Date;
+interface Incident {
+  inc_number: string;
+  short_summary: string;
+  app_name: string;
+  created_date: string;
+  status: 'In Progress' | 'Resolved' | 'Open';
+  priority: 'Low' | 'Medium' | 'High';
 }
 
-export interface LatestIncidentsProps {
-  orders?: Order[];
-  sx?: SxProps;
-}
+export function LatestIncidents(): React.JSX.Element {
+  const [incidents, setIncidents] = useState<Incident[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
 
-export function LatestIncidents({ orders = [], sx }: LatestIncidentsProps): React.JSX.Element {
+  useEffect(() => {
+    async function fetchIncidents() {
+      try {
+        const response = await fetch('http://localhost:8080/api/incidents');
+        if (!response.ok) throw new Error('Failed to fetch incidents');
+        const data: Incident[] = await response.json();
+        setIncidents(data);
+      } catch (err) {
+        setError(err instanceof Error ? err.message : 'An unexpected error occurred');
+      } finally {
+        setLoading(false);
+      }
+    }
+
+    fetchIncidents();
+  }, []);
+
   return (
-    <Card sx={sx}>
+    <Card>
       <CardHeader title="Incident Status" />
       <Divider />
-      <Box sx={{ overflowX: 'auto' }}>
-        <Table sx={{ minWidth: 800 }}>
-          <TableHead>
-            <TableRow>
-              <TableCell>Incident Number</TableCell>
-              <TableCell>Short description</TableCell>
-              <TableCell>App Name</TableCell>
-              <TableCell sortDirection="desc">Date</TableCell>
-              <TableCell>Priority</TableCell>
-              <TableCell>Status</TableCell>
-            </TableRow>
-          </TableHead>
-          <TableBody>
-            {orders.map((order) => {
-              const { label, color } = statusMap[order.status] ?? { label: 'Unknown', color: 'default' };
+      <Box sx={{ overflowX: 'auto', minHeight: 200 }}>
+        {loading ? (
+          <Box display="flex" justifyContent="center" alignItems="center" height="100%">
+            <CircularProgress />
+          </Box>
+        ) : error ? (
+          <Alert severity="error">{error}</Alert>
+        ) : (
+          <Table sx={{ minWidth: 800 }}>
+            <TableHead>
+              <TableRow>
+                <TableCell>Incident Number</TableCell>
+                <TableCell>Short description</TableCell>
+                <TableCell>App Name</TableCell>
+                <TableCell>Date</TableCell>
+                <TableCell>Priority</TableCell>
+                <TableCell>Status</TableCell>
+              </TableRow>
+            </TableHead>
+            <TableBody>
+              {incidents.map((incident) => {
+                const status = statusMap[incident.status] ?? { label: 'Unknown', color: 'default' };
+                const priority = priorityMap[incident.priority] ?? { label: 'Unknown', color: 'default' };
 
-              return (
-                <TableRow hover key={order.id}>
-                  <TableCell><Link href={`/dashboard/incidents/${order.id}`} passHref>
-                  {order.id}
-                  </Link></TableCell>
-                  <TableCell>{order.shortDescription}</TableCell>
-                  <TableCell>{order.AppName}</TableCell>
-                  <TableCell>{dayjs(order.createdAt).format('MMM D, YYYY')}</TableCell>
-                  <TableCell>{order.priority}</TableCell>
-                  <TableCell>
-                    <Chip color={color} label={label} size="small" />
-                  </TableCell>
-                </TableRow>
-              );
-            })}
-          </TableBody>
-        </Table>
+                return (
+                  <TableRow hover key={incident.inc_number}>
+                    <TableCell>
+                      <Link href={`/dashboard/incidents/${incident.inc_number}`} passHref>
+                        {incident.inc_number}
+                      </Link>
+                    </TableCell>
+                    <TableCell>{incident.short_summary}</TableCell>
+                    <TableCell>{incident.app_name}</TableCell>
+                    <TableCell>{dayjs(incident.created_date).format('MMM D, YYYY')}</TableCell>
+                    <TableCell>
+                      <Chip color={priority.color} label={priority.label} size="small" />
+                    </TableCell>
+                    <TableCell>
+                      <Chip color={status.color} label={status.label} size="small" />
+                    </TableCell>
+                  </TableRow>
+                );
+              })}
+            </TableBody>
+          </Table>
+        )}
       </Box>
       <Divider />
       <CardActions sx={{ justifyContent: 'flex-end' }}>
-        {/* <Button
-          color="inherit"
-          endIcon={<ArrowRightIcon fontSize="var(--icon-fontSize-md)" />}
-          size="small"
-          variant="text"
-        >
-          View all
-        </Button> */}
+        {/* Add a "View All" button if needed */}
       </CardActions>
     </Card>
   );
