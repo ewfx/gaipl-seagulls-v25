@@ -120,7 +120,10 @@ This solution streamlines platform management, reduces downtime, and **enhances 
 Briefly outline the technologies, frameworks, and tools used in development.
 
 ## 🚧 Challenges We Faced
-Describe the major technical or non-technical challenges your team encountered.
+- Real time integrations with Enterprise Tools like Service now, Splunk, Appdynamics
+- Creation of sample Datasets for incidents and telemetry related data
+- Hosting  infrastructure for the complete solution
+- Single click Paging when any application dependency is down
 
 ## 🏃 How to Run the UI code
 1. Clone the repository  
