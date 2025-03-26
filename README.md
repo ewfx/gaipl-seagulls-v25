@@ -30,11 +30,30 @@ This solution enhances operational efficiency by providing:
 Empowering engineers with a seamless troubleshooting experience. 🚀
 
 ## 🎥 Demo
-🔗 [Live Demo](#) (if applicable)  
-📹 [Video Demo](#) (if applicable)  
-🖼️ Screenshots:
-
-![Screenshot 1](link-to-image)
+🔗 Live Demo<br>
+**Use this link to access the webpage**
+http://4.188.72.83:3000/dashboard <br>
+📹 [Video Demo](#) (if applicable)
+<br><br>
+🖼️ Screenshots: <br><br>
+High Level Architecture: <br><br>
+<img width="769" alt="image" src="https://github.com/user-attachments/assets/c83c857c-6fef-4b73-b344-2603aad21afb" /> <br><br>
+Multi Agent Orchestration workflow: <br>
+<img width="900" alt="image" src="https://github.com/user-attachments/assets/f18e1629-55f5-4d94-b13a-28ef9e2183aa" /> <br><br>
+Incident Recommendation & Resolution MCP workflow: <br>
+<img width="875" alt="image" src="https://github.com/user-attachments/assets/ffdac692-bdcf-4d99-82d3-48490f657ddc" /> <br><br>
+Incident data sync workflow: <br>
+<img width="806" alt="image" src="https://github.com/user-attachments/assets/f83a44fd-8776-4d10-910d-94816b8c9112" /> <br><br>
+Knowledge source data sync workflow: <br>
+<img width="904" alt="image" src="https://github.com/user-attachments/assets/c05919ea-d8eb-47bd-b820-7a0a59242393" /> <br><br>
+Jarvis UI: Homepage: <br>
+<img width="867" alt="image" src="https://github.com/user-attachments/assets/e694119c-5c98-4cba-b81b-c860f976ee04" /> <br><br>
+Jarvis UI: App dependency health View: <br>
+<img width="885" alt="image" src="https://github.com/user-attachments/assets/478181ea-43c7-41c6-bf0c-5cf0b90a77f2" /> <br><br>
+Jarvis UI: Portfolio health View: <br>
+<img width="869" alt="image" src="https://github.com/user-attachments/assets/448b1ec4-1fe7-4d5e-9535-397a3d32d2db" /> <br><br>
+Jarvis UI: Metrics: <br>
+<img width="875" alt="image" src="https://github.com/user-attachments/assets/331a107b-42de-4f9e-b428-befe0c781d74" /> <br><br>
 
 ## 💡 Inspiration
 What inspired you to create this project? Describe the problem you're solving.
@@ -103,7 +122,10 @@ This solution streamlines platform management, reduces downtime, and **enhances 
 Briefly outline the technologies, frameworks, and tools used in development.
 
 ## 🚧 Challenges We Faced
-Describe the major technical or non-technical challenges your team encountered.
+- Real time integrations with Enterprise Tools like Service now, Splunk, Appdynamics
+- Creation of sample Datasets for incidents and telemetry related data
+- Hosting  infrastructure for the complete solution
+- Single click Paging when any application dependency is down
 
 ## 🏃 How to Run the UI code
 1. Clone the repository  
@@ -199,10 +221,10 @@ To set up the `n8n` workflow locally, follow these steps:
 🚀 **You're all set!** The application should now be running at `http://0.0.0.0:5679/`.
 
 ## 🏗️ Tech Stack
-- 🔹 Frontend: React
-- 🔹 Backend: Node.js
-- 🔹 Database: PostgreSQL / Vector Db
-- 🔹 Dependencies: n8n, LangChain, OpenAI, FastAPI, Uvicorn Server
+  🔹 Frontend: React
+  🔹 Backend: Node.js
+  🔹 Database: PostgreSQL / Vector Db
+  🔹 Dependencies: n8n, LangChain, OpenAI, FastAPI, Uvicorn Server
 
 ## 👥 Team
 - **SeagullsV25** - [GitHub](https://github.com/ewfx/gaipl-seagulls-v25)
