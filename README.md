@@ -35,6 +35,10 @@ Empowering engineers with a seamless troubleshooting experience. 🚀
 http://4.188.72.83:3000/dashboard <br>
 📹 [Video Demo](#) (if applicable)
 <br><br>
+**Prompos for ChatAI:**
+1. list all the upstream and downstream  system connectivity dependencies for payment_gateway
+2.	Incidents: List all realted incidents related to UI crash on login
+3.	List all Containers
 🖼️ Screenshots: <br><br>
 High Level Architecture: <br><br>
 <img width="769" alt="image" src="https://github.com/user-attachments/assets/c83c857c-6fef-4b73-b344-2603aad21afb" /> <br><br>
