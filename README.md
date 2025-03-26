@@ -129,19 +129,19 @@ Describe the major technical or non-technical challenges your team encountered.
    node src/server.js
    ```
 
-# Jarvis RR Engine
+**Jarvis RR Engine**
 
-## Setup Instructions
+**Setup Instructions**
 
 Follow the steps below to set up and run the application.
 
-### 1. Create a Virtual Environment
+**1. Create a Virtual Environment**
 Run the following command to create a virtual environment:
 ```sh
 python -m venv .venv
 ```
 
-### 2. Activate Virtual Environment
+**2. Activate Virtual Environment**
 - **Windows:**
   ```sh
   .venv\Scripts\activate
@@ -151,23 +151,23 @@ python -m venv .venv
   source .venv/bin/activate
   ```
 
-### 3. Install Dependencies
+**3. Install Dependencies**
 Use `pip` to install the required dependencies:
 ```sh
 pip install -r code/src/jarvis_rr_engine/req_v1.txt
 ```
 
-### 4. Install & Start Docker
+**4. Install & Start Docker**
 Ensure Docker is installed on your system. If not, download and install it from [Docker's official website](https://www.docker.com/).  
 Once installed, start Docker before proceeding.
 
-### 5. Run Uvicorn Server
+**5. Run Uvicorn Server**
 Start the Uvicorn server with the following command:
 ```sh
 uvicorn code.src.jarvis_rr_engine.controllor:app --host 0.0.0.0 --port 5679 --reload
 ```
 
-### 6. Set Up n8n Workflow in Local Docker Instance
+**6. Set Up n8n Workflow in Local Docker Instance**
 To set up the `n8n` workflow locally, follow these steps:
 
 1. Start an `n8n` instance in Docker:
@@ -190,7 +190,7 @@ To set up the `n8n` workflow locally, follow these steps:
 
 4. Save and activate the workflow.
 
-### Additional Notes
+**Additional Notes**
 - Ensure Python and `pip` are installed before starting the setup.
 - If any issues arise, check dependencies in `code/src/jarvis_rr_engine/req_v1.txt` and ensure Docker is running.
 
