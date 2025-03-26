@@ -30,6 +30,8 @@ This solution enhances operational efficiency by providing:
 Empowering engineers with a seamless troubleshooting experience. 🚀
 
 ## 🎥 Demo
+https://github.com/ewfx/gaipl-seagulls-v25/tree/main/artifacts/demo
+https://drive.google.com/drive/folders/1pdS5Js2PMK_jw4TSs5tdOlF9uPWZ5TAv
 🔗 Live Demo<br>
 **Use this link to access the webpage**
 http://4.188.72.83:3000/dashboard <br>
