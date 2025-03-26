@@ -4,7 +4,6 @@ import * as React from "react";
 import { useState, useEffect } from "react";
 import { useParams, useRouter } from "next/navigation";
 import { Box, Card, CardContent, CardHeader, Button, Stack, Typography, Stepper, Step, StepLabel, CircularProgress, Alert } from "@mui/material";
-
 interface Incident {
   inc_number: string;
   short_summary: string;
@@ -20,7 +19,6 @@ interface Incident {
 }
 
 const steps = ["Analyzed", "Recommended", "Approved", "Executed", "Validated", "Resolved"];
-
 export function IncidentDetails(): React.JSX.Element {
   const { id: inc_number } = useParams();
   const router = useRouter();
@@ -78,7 +76,8 @@ export function IncidentDetails(): React.JSX.Element {
       };
       const body = JSON.stringify({
         query: {
-          command: "List Running Containers",
+          command:
+            "Execute the given resolution and provide appropriate status: \n List all containers if the ci-postgres-instance was down then restart ci-postgres-instance Post Resolution Steps: Health check ci-postgres-instance Mark the incident with resolved comment if the ci-postgres-instance was running",
         },
       });
   
@@ -92,19 +91,16 @@ export function IncidentDetails(): React.JSX.Element {
         const errorData = await webhookResponse.json();
         throw new Error(`Webhook invocation failed: ${JSON.stringify(errorData)}`);
       }
-  
-      // Update both incident status and active step **locally**
       setIncident((prev) =>
         prev ? { ...prev, status: "Resolved" } : null
       );
-      setActiveStep(steps.length - 1); // Move step to "Resolved"
-  
+      setActiveStep(steps.length - 1);  
     } catch (err) {
       setError(err instanceof Error ? err.message : "Failed to invoke webhook");
     } finally {
       setIsSubmitting(false);
     }
-  };   
+  };  
 
   return (
     <Box sx={{ p: 3, maxWidth: 800, mx: "auto" }}>
@@ -145,7 +141,6 @@ export function IncidentDetails(): React.JSX.Element {
               </Stack>
             </CardContent>
           </Card>
-
           {/* Action Buttons */}
           <Stack direction="row" spacing={2} justifyContent="center" sx={{ mt: 3 }}>
             <Button variant="contained" color="primary" onClick={handleApprove} disabled={isSubmitting}>
