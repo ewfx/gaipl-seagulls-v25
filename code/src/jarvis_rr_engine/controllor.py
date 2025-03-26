@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 from pydantic import BaseModel
 
-from artifacts.backend.orchestrator import get_agent
+from code.src.jarvis_rr_engine.orchestrator import get_agent
 
 class Command(BaseModel):
     command: str
