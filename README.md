@@ -219,10 +219,10 @@ To set up the `n8n` workflow locally, follow these steps:
 🚀 **You're all set!** The application should now be running at `http://0.0.0.0:5679/`.
 
 ## 🏗️ Tech Stack
-- 🔹 Frontend: React
-- 🔹 Backend: Node.js
-- 🔹 Database: PostgreSQL / Vector Db
-- 🔹 Dependencies: n8n, LangChain, OpenAI, FastAPI, Uvicorn Server
+  🔹 Frontend: React
+  🔹 Backend: Node.js
+  🔹 Database: PostgreSQL / Vector Db
+  🔹 Dependencies: n8n, LangChain, OpenAI, FastAPI, Uvicorn Server
 
 ## 👥 Team
 - **SeagullsV25** - [GitHub](https://github.com/ewfx/gaipl-seagulls-v25)
