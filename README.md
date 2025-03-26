@@ -233,6 +233,9 @@ To set up the `n8n` workflow locally, follow these steps:
   🔹 Backend: Node.js
   🔹 Database: PostgreSQL / Vector Db
   🔹 Dependencies: n8n, LangChain, OpenAI, FastAPI, Uvicorn Server
+  <br>
+  ![image](https://github.com/user-attachments/assets/3ccc08f4-e5b9-40c0-b6a9-fd7337fbfc1c)
+
 
 ## 👥 Team
 - **SeagullsV25** - [GitHub](https://github.com/ewfx/gaipl-seagulls-v25)
