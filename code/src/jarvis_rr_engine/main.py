@@ -1,5 +1,5 @@
 # Run the agent interactively
-from artifacts.backend.orchestrator import get_agent
+from code.src.jarvis-rr-engine.orchestrator import get_agent
 
 if __name__ == "__main__":
     print("🔹 Integrated Platform Support AI Agent")
