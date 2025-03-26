@@ -36,7 +36,7 @@ export function IncidentDetails(): React.JSX.Element {
     setLoading(true);
     setError(null);
     try {
-      const response = await fetch(`http://localhost:8080/api/incidents/${in_number}`);
+      const response = await fetch(`http://4.188.72.83:4040/api/incidents/${in_number}`);
       if (!response.ok) {
         throw new Error("Failed to fetch incident details");
       }

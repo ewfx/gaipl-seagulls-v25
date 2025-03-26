@@ -46,7 +46,7 @@ export function LatestIncidents(): React.JSX.Element {
   useEffect(() => {
     async function fetchIncidents() {
       try {
-        const response = await fetch('http://localhost:8080/api/incidents');
+        const response = await fetch('http://4.188.72.83:4040/api/incidents');
         if (!response.ok) throw new Error('Failed to fetch incidents');
         const data: Incident[] = await response.json();
         setIncidents(data);
