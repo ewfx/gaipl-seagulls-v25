@@ -30,7 +30,9 @@ This solution enhances operational efficiency by providing:
 Empowering engineers with a seamless troubleshooting experience. 🚀
 
 ## 🎥 Demo
-🔗 [Live Demo](#) (if applicable)  
+🔗 Live Demo
+**Use this link to access the webpage**
+http://4.188.72.83:3000/dashboard <br>
 📹 [Video Demo](#) (if applicable)
 <br><br>
 🖼️ Screenshots: <br><br>
