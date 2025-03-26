@@ -120,7 +120,7 @@ const TreeGraph = ({ data }) => {
       .enter()
       .append("text")
       .attr("class", "status-icon")
-      .attr("x", (d) => d.y + 40) // Adjust position
+      .attr("x", (d) => d.y + 70) // Adjust position
       .attr("y", (d) => d.x)
       .attr("dy", "0.35em")
       .text((d) => getStatusIcon(d.data.health))
