@@ -33,6 +33,7 @@ Empowering engineers with a seamless troubleshooting experience. 🚀
 🔗 [Live Demo](#) (if applicable)  
 📹 [Video Demo](#) (if applicable)  
 🖼️ Screenshots:
+High Level Architecture: <br>
 <img width="769" alt="image" src="https://github.com/user-attachments/assets/c83c857c-6fef-4b73-b344-2603aad21afb" />
 
 ![Screenshot 1](link-to-image)
