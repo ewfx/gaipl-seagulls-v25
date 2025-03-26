@@ -128,11 +128,81 @@ Describe the major technical or non-technical challenges your team encountered.
    ```sh
    node src/server.js
    ```
+
+# Jarvis RR Engine
+
+## Setup Instructions
+
+Follow the steps below to set up and run the application.
+
+### 1. Create a Virtual Environment
+Run the following command to create a virtual environment:
+```sh
+python -m venv .venv
+```
+
+### 2. Activate Virtual Environment
+- **Windows:**
+  ```sh
+  .venv\Scripts\activate
+  ```
+- **macOS/Linux:**
+  ```sh
+  source .venv/bin/activate
+  ```
+
+### 3. Install Dependencies
+Use `pip` to install the required dependencies:
+```sh
+pip install -r code/src/jarvis_rr_engine/req_v1.txt
+```
+
+### 4. Install & Start Docker
+Ensure Docker is installed on your system. If not, download and install it from [Docker's official website](https://www.docker.com/).  
+Once installed, start Docker before proceeding.
+
+### 5. Run Uvicorn Server
+Start the Uvicorn server with the following command:
+```sh
+uvicorn code.src.jarvis_rr_engine.controllor:app --host 0.0.0.0 --port 5679 --reload
+```
+
+### 6. Set Up n8n Workflow in Local Docker Instance
+To set up the `n8n` workflow locally, follow these steps:
+
+1. Start an `n8n` instance in Docker:
+   ```sh
+   docker run -d --restart=always --name n8n \
+    -p 5678:5678  -e GENERIC_TIMEZONE="Asia/Kolkata"  -e TZ="Asia/Kolkata" \
+   -e N8N_SECURE_COOKIE=false -e N8N_COMMUNITY_PACKAGES_ALLOW_TOOL_USAGE=true \
+   -v n8n_data:/home/node/.n8n  n8nio/n8n
+   ```
+
+2. Once `n8n` is running, open your browser and go to `http://localhost:5678/`.
+
+3. Import the workflow JSON file located at:
+   ```sh
+   code/src/jarvis_rr_engine/n8n/Integrated_Platform_Support_workflow.json
+   ```
+   - Navigate to `n8n` UI.
+   - Click on `Import` in the workflow editor.
+   - Select the JSON file and upload it.
+
+4. Save and activate the workflow.
+
+### Additional Notes
+- Ensure Python and `pip` are installed before starting the setup.
+- If any issues arise, check dependencies in `code/src/jarvis_rr_engine/req_v1.txt` and ensure Docker is running.
+
+---
+
+🚀 **You're all set!** The application should now be running at `http://0.0.0.0:5679/`.
+
 ## 🏗️ Tech Stack
 - 🔹 Frontend: React
 - 🔹 Backend: Node.js
 - 🔹 Database: PostgreSQL / Vector Db
-- 🔹 Other: #naveen fill this up
+- 🔹 Dependencies: n8n, LangChain, OpenAI, FastAPI, Uvicorn Server
 
 ## 👥 Team
 - **SeagullsV25** - [GitHub](https://github.com/ewfx/gaipl-seagulls-v25)
