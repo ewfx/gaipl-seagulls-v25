@@ -15,35 +15,34 @@ const typeImages: any = {
 const fetchAppData = (appName: string) => {
   const mockResponses: any = {
     App1: {
-      appName: "App1",
+      appName: "Payments",
       health: "up",
       type: "webservice",
       businessImpact: "Online banking will not work",
       upstreams: [
-        { appName: "Upstream1", health: "up", type: "database", businessImpact: "Database issue" },
-        { appName: "Upstream2", health: "down", type: "redis", businessImpact: "Redis failure" },
-		{ appName: "Upstream3", health: "down", type: "redis", businessImpact: "Redis failure" },
-		{ appName: "Upstream4", health: "amber", type: "redis", businessImpact: "Redis failure" },
-		{ appName: "Upstream5", health: "down", type: "redis", businessImpact: "Redis failure" },
-		{ appName: "Upstream6", health: "down", type: "redis", businessImpact: "Redis failure" },
+        { appName: "Populations Database", health: "up", type: "database", businessImpact: "Database issue, will not be able to audit our transactions/ retrive information" },
+        { appName: "Cache Data", health: "down", type: "redis", businessImpact: "Redis failure" },
+		{ appName: "AppUpstream", health: "down", type: "webservice", businessImpact: "AppUpstream is down. We will not receive customer information" },
+		{ appName: "Trigger topic", health: "amber", type: "kafka", businessImpact: "One or more of Kafka brokers might be down, this impacts the trigger of F1 flow" }
       ],
       downstreams: [
-        { appName: "Downstream1", health: "up", type: "kafka", businessImpact: "Message delay" },
-        { appName: "Downstream2", health: "up", type: "webservice", businessImpact: "Minor outage" },
+        { appName: "Output topic", health: "up", type: "kafka", businessImpact: "There can be a message delay due to upstreams" },
+        { appName: "Experience page", health: "up", type: "webservice", businessImpact: "There will be a minor outage due to unavailability of other services" },
+        { appName: "OLB", health: "down", type: "webservice", businessImpact: "Online banking page is not available to display data" },
       ],
     },
     App2: {
-      appName: "App2",
+      appName: "Customer",
       health: "down",
       type: "database",
       businessImpact: "User login issues",
       upstreams: [
-        { appName: "UpstreamA", health: "up", type: "redis", businessImpact: "Cache issue" },
-        { appName: "UpstreamB", health: "up", type: "kafka", businessImpact: "Event delay" },
+        { appName: "Customer Info", health: "up", type: "redis", businessImpact: "Cache issue" },
+        { appName: "Accounts Info", health: "up", type: "kafka", businessImpact: "Event delay" },
       ],
       downstreams: [
-        { appName: "DownstreamA", health: "down", type: "webservice", businessImpact: "Service down" },
-        { appName: "DownstreamB", health: "down", type: "database", businessImpact: "Data inconsistency" },
+        { appName: "Mobile App", health: "down", type: "webservice", businessImpact: "Service down" },
+        { appName: "CustomerDb", health: "down", type: "database", businessImpact: "Data inconsistency" },
       ],
     },
   };
@@ -83,8 +82,8 @@ const ApplicationArchitecture = () => {
         <MenuItem value="" disabled>
           Select an Application
         </MenuItem>
-        <MenuItem value="App1">App1</MenuItem>
-        <MenuItem value="App2">App2</MenuItem>
+        <MenuItem value="App1">Payments</MenuItem>
+        <MenuItem value="App2">Customer</MenuItem>
       </Select>
 
       {appData && (

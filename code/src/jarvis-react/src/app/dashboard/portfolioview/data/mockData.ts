@@ -8,19 +8,19 @@ export const mockData = [
         Level: "L3",
         subLevels: [
           {
-            name: "Payments",
+            name: "Accounts",
             Level: "L2",
             subLevels: [
-              { name: "App1", Level: "L1", health: "up" },
-              { name: "App2", Level: "L1", health: "up" }
+              { name: "Balance", Level: "L1", health: "up" },
+              { name: "UpdateInfo", Level: "L1", health: "up" }
             ]
           },
           {
             name: "CustomerCare",
             Level: "L2",
             subLevels: [
-              { name: "App3", Level: "L1", health: "up" },
-              { name: "App4", Level: "L1", health: "down" }
+              { name: "Feedback", Level: "L1", health: "up" },
+              { name: "Help", Level: "L1", health: "down" }
             ]
           }
         ]
@@ -33,16 +33,16 @@ export const mockData = [
             name: "Payments",
             Level: "L2",
             subLevels: [
-              { name: "App5", Level: "L1", health: "up" },
-              { name: "App6", Level: "L1", health: "up" }
+              { name: "Digital Wallet", Level: "L1", health: "up" },
+              { name: "EMI", Level: "L1", health: "up" }
             ]
           },
           {
             name: "CustomerCare",
             Level: "L2",
             subLevels: [
-              { name: "App7", Level: "L1", health: "up" },
-              { name: "App8", Level: "L1", health: "amber" }
+              { name: "Help", Level: "L1", health: "up" },
+              { name: "Feedback", Level: "L1", health: "amber" }
             ]
           }
         ]

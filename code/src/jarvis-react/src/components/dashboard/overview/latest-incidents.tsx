@@ -18,15 +18,15 @@ import CircularProgress from '@mui/material/CircularProgress';
 import Alert from '@mui/material/Alert';
 
 const statusMap = {
-  'In Progress': { label: 'In-progress', color: 'warning' },
-  Resolved: { label: 'Closed', color: 'success' },
-  Open: { label: 'To-Do', color: 'error' },
+  InProgress: { label: 'In-progress', color: '#2196f3' },
+  Resolved: { label: 'Closed', color: '#4caf50' }, 
+  Open: { label: 'To-Do', color: '#f44336' },
 } as const;
 
 const priorityMap = {
-  Low: { label: 'Low', color: 'warning' },
-  Medium: { label: 'Medium', color: 'success' },
-  High: { label: 'High', color: 'error' },
+  Low: { label: 'Low', color: '#ff9800' },
+  Medium: { label: 'Medium', color: '#4caf50' },
+  High: { label: 'High', color: '#f44336' },
 } as const;
 
 interface Incident {
@@ -99,10 +99,16 @@ export function LatestIncidents(): React.JSX.Element {
                     <TableCell>{incident.app_name}</TableCell>
                     <TableCell>{dayjs(incident.created_date).format('MMM D, YYYY')}</TableCell>
                     <TableCell>
-                      <Chip color={priority.color} label={priority.label} size="small" />
+                      <Chip label={priority.label}
+                        size="small"
+                        sx={{ backgroundColor: priority.color, color: '#fff' }}
+                      />
                     </TableCell>
                     <TableCell>
-                      <Chip color={status.color} label={status.label} size="small" />
+                      <Chip label={status.label}
+                        size="small"
+                        sx={{ backgroundColor: status.color, color: '#fff' }}
+                      />
                     </TableCell>
                   </TableRow>
                 );

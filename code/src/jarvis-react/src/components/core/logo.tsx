@@ -6,8 +6,8 @@ import { useColorScheme } from '@mui/material/styles';
 
 import { NoSsr } from '@/components/core/no-ssr';
 
-const HEIGHT = 60;
-const WIDTH = 60;
+const HEIGHT = 90;
+const WIDTH = 90;
 
 type Color = 'dark' | 'light';
 
@@ -22,9 +22,9 @@ export function Logo({ color = 'dark', emblem, height = HEIGHT, width = WIDTH }:
   let url: string;
 
   if (emblem) {
-    url = color === 'light' ? '/assets/logo--dark.png' : '/assets/logo--dark.png';
+    url = color === 'light' ? '/assets/jarvis-logo.png' : '/assets/jarvis-logo.png';
   } else {
-    url = color === 'light' ? '/assets/logo--dark.png' : '/assets/logo--dark.png';
+    url = color === 'light' ? '/assets/jarvis-logo.png' : '/assets/jarvis-logo.png';
   }
 
   return <Box alt="logo" component="img" height={height} src={url} width={width} />;
