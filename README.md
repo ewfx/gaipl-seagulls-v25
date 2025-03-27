@@ -1,4 +1,4 @@
-# 🚀 Project Name
+# 🚀 Jarvis - One stop AI solution for Platform Support
 
 ## 📌 Table of Contents
 - [Introduction](#introduction)
