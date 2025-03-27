@@ -14,11 +14,10 @@
 ---
 
 ## 🎯 Introduction
-A brief overview of your project and its purpose. Mention which problem statement are your attempting to solve. Keep it concise and engaging.
 
 **Jarvis: An Integrated solution for Platform Engineers**
 
-We have developed an **Integrated Platform Environment**, a **one-stop solution for platform engineers** to efficiently **manage incidents, access platform-related insights, monitor application health, and verify upstream/downstream dependencies**.  
+We have developed an **Integrated Platform Environment**, a **one-stop solution for platform engineers** to efficiently **manage incidents, access platform-related insights, monitor application health, and verify upstream/downstream dependencies**. Jarvis Web features a **responsive design**, adapting seamlessly to **desktops, tablets, and smartphones** for an optimal user experience.
 
 Our approach goes beyond just implementing a **GenAI model**—we have built a **comprehensive workflow** that delivers an **end-to-end, AI-powered platform support system**.  
 
@@ -229,12 +228,24 @@ To set up the `n8n` workflow locally, follow these steps:
 🚀 **You're all set!** The application should now be running at `http://0.0.0.0:5679/`.
 
 ## 🏗️ Tech Stack
-  🔹 Frontend: React
-  🔹 Backend: Node.js
-  🔹 Database: PostgreSQL / Vector Db
-  🔹 Dependencies: n8n, LangChain, OpenAI, FastAPI, Uvicorn Server
-  <br>
-  ![image](https://github.com/user-attachments/assets/3ccc08f4-e5b9-40c0-b6a9-fd7337fbfc1c)
+| **Technology**            | **Purpose**                                                 | **Reason for Choosing**                                      |
+|--------------------------|-------------------------------------------------------------|--------------------------------------------------------------|
+| **Frontend: React**      | Build the UI for the application                           | Component-based architecture, fast rendering, and scalability |
+| **Backend: Node.js**     | Handle API requests and business logic                    | Asynchronous, event-driven, and scalable                     |
+| **Database: PostgreSQL** | Store structured data                                      | Relational, ACID-compliant, and supports complex queries     |
+| **Database: Vector DB**  | Store embeddings for similarity searches                   | Optimized for vector-based search and AI-driven applications |
+| **n8n**                 | Automate workflows and integrations                        | Powerful automation tool with easy integration into communication channels like Slack, Discord, and email. Provides visual workflow building, extensive third-party API support, and seamless orchestration of tasks. |
+| **LangChain**           | Enable AI-powered workflows                                | Simplifies working with LLMs and chaining multiple AI tasks  |
+| **OpenAI**              | Provide LLM capabilities                                   | Best-in-class AI models for NLP tasks                        |
+| **FastAPI**             | Build high-performance APIs                               | Async support, fast execution, and easy-to-use framework    |
+| **Uvicorn Server**      | Run FastAPI applications                                  | Lightweight, high-performance ASGI server                    |
+| **nginx**               | Reverse proxy and load balancer                           | Secure, efficient, and handles high traffic                 |
+| **Supabase Vector Store** | Manage and retrieve vector embeddings                    | Open-source, scalable alternative to proprietary vector DBs  |
+| **Docker**              | Containerize and deploy applications                      | Ensures consistency across environments and simplifies deployment |
+| **Azure**               | Cloud hosting and infrastructure management               | Scalable, secure, and integrates well with enterprise applications |
+
+
+<img width="885" alt="image" src="https://github.com/user-attachments/assets/3ccc08f4-e5b9-40c0-b6a9-fd7337fbfc1c" /> <br><br>
 
 
 ## 👥 Team
