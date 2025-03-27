@@ -126,9 +126,6 @@ This solution streamlines platform management, reduces downtime, and **enhances 
 ✅ **AI-driven insights → Smarter decision-making**  
 ✅ **Automation → Increased efficiency & productivity**  
 
-## 🛠️ How We Built It
-Briefly outline the technologies, frameworks, and tools used in development.
-
 ## 🚧 Challenges We Faced
 - Real time integrations with Enterprise Tools like Service now, Splunk, Appdynamics
 - Creation of sample Datasets for incidents and telemetry related data
