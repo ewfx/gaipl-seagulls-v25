@@ -36,7 +36,8 @@ http://4.188.72.83:3000/dashboard <br>
 📹 [Video Demo](#) (if applicable)<br>
 **Use this link to access the video of demo**<br>
 https://github.com/ewfx/gaipl-seagulls-v25/tree/main/artifacts/demo
-https://drive.google.com/drive/folders/1pdS5Js2PMK_jw4TSs5tdOlF9uPWZ5TAv
+**Use this link to access the video of demo for better quality**
+https://drive.google.com/drive/u/1/folders/1PeJSBPH7h624ZdVHbqemAibdxQogCZUA
 <br><br>
 **Prompos for ChatAI:**
 1. list all the upstream and downstream  system connectivity dependencies for payment_gateway
