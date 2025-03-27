@@ -31,12 +31,12 @@ Empowering engineers with a seamless troubleshooting experience. 🚀
 ## 🎥 Demo
 
 🔗 Live Demo<br>
-**Use this link to access the webpage**
+**Use this link to access the Jarvis Platform **
 http://4.188.72.83:3000/dashboard <br>
 📹 [Video Demo](#) (if applicable)<br>
 **Use this link to access the video of demo**<br>
-https://github.com/ewfx/gaipl-seagulls-v25/tree/main/artifacts/demo
-**Use this link to access the video of demo for better quality**
+https://github.com/ewfx/gaipl-seagulls-v25/tree/main/artifacts/demo<br>
+**Use this link to access the video of demo for better quality : **
 https://drive.google.com/drive/u/1/folders/1PeJSBPH7h624ZdVHbqemAibdxQogCZUA
 <br><br>
 **Prompos for ChatAI:**
